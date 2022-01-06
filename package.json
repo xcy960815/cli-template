@@ -1,0 +1,20 @@
+{
+    "name": "templet-cli",
+    "version": "1.0.0",
+    "description": "cli 代码模板",
+    "type": "commonjs",
+    "bin": {
+        "tem": "/bin/index.js"
+    },
+    "scripts": {},
+    "repository": {
+        "type": "git",
+        "url": " https://github.com/ChongYu-Yease/mini-cli.git"
+    },
+    "keywords": [
+        "cli-template"
+    ],
+    "author": "chongyu",
+    "license": "MIT",
+    "dependencies": {}
+}
