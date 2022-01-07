@@ -4,7 +4,7 @@
     "description": "cli 代码模板",
     "type": "commonjs",
     "bin": {
-        "test": "/bin/index.js"
+        "test": "bin/index.js"
     },
     "scripts": {},
     "repository": {
@@ -14,7 +14,9 @@
     "keywords": [
         "cli-template"
     ],
-    "author": "chongyu",
+    "author": "",
     "license": "MIT",
-    "dependencies": {}
+    "dependencies": {
+        "commander": "^8.3.0"
+    }
 }
