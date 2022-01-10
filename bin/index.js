@@ -2,11 +2,19 @@
 
 const { Command } = require('commander')
 const program = new Command()
-const fs = require('fs')
-const path = require('path')
-const packagePath = path.resolve(__dirname, '../package.json')
-const packageContent = JSON.parse(fs.readFileSync(packagePath))
-const { version } = packageContent
+const checkInternet = require('./utils/check-internet')
+const getPackage = require('./utils/get-package')
+const version = getPackage('version')
 
 program.version(version, '-v,-V,--version')
+
+program
+    .command('world')
+    .description('测试指令')
+    .action(async () => {
+        await checkInternet()
+        console.log('hellow world')
+        process.exit(1)
+    })
+
 program.parse(process.argv)
