@@ -20,7 +20,9 @@ const initQuestions = () => {
             }指令`,
             validate: function (answer) {
                 if (answer.length < 1) {
-                    return '请输入cli测试指令'
+                    return `请输入cli${
+                        process.env.NODE_ENV === 'production' ? '发布' : '测试'
+                    }指令`
                 } else {
                     const reg = /^[5A-Za-z0-9-\_]+$/
                     if (reg.test(answer)) {
