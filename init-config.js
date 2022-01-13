@@ -15,7 +15,9 @@ const initQuestions = () => {
         {
             type: 'input',
             name: 'command',
-            message: '请输入cli测试指令',
+            message: `请输入cli${
+                process.env.NODE_ENV === 'production' ? '发布' : '测试'
+            }指令`,
             validate: function (answer) {
                 if (answer.length < 1) {
                     return '请输入cli测试指令'
@@ -155,7 +157,7 @@ const runInstallCommand = async () => {
  * 执行发布npm包的操作
  */
 const runPublishCommand = async () => {
-    await execa('npm --registry https://registry.npmjs.org12345/ publish', {
+    await execa('npm --registry https://registry.npmjs.org/ publish', {
         shell: true,
         stdio: [2, 2, 2],
     }).catch(async (error) => {
@@ -170,6 +172,7 @@ const runPublishCommand = async () => {
             // 修改项目的package.json的内容
             await writePackage(packageValue)
             console.log(chalk.greenBright('\npackage.json 的版本号回滚成功\n'))
+            process.exit(1)
         }
     })
 }
@@ -186,7 +189,7 @@ const initConfig = async () => {
         await runUnlinkCommand()
         // 获取下一个版本
         const newVersion = await updatePackageVersion()
-        const { command } = initQuestions()
+        const { command } = await initQuestions()
         const packageValue = {
             version: newVersion,
             bin: {
