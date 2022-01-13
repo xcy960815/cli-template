@@ -10,7 +10,7 @@ module.exports = async () => {
         version: 'v4',
     })
     if (!online) {
-        console.log(chalk.red('请检查网络'))
+        console.log(chalk.red('网络连接失败，请稍后再试'))
         process.exit(1)
     }
 }

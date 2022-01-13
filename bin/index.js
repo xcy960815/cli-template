@@ -1,5 +1,7 @@
 #!/usr/bin/env node
-
+// 检查node版本
+const checkNodeVersion = require('./utils/check-node-version')
+checkNodeVersion()
 const { Command } = require('commander')
 const program = new Command()
 const checkInternet = require('./utils/check-internet')
