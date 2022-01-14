@@ -204,7 +204,7 @@ const initConfig = async () => {
         await runPublishCommand(command)
     } else {
         // 运行 npm unlink 指令
-        await runUnlinkCommand()
+        // await runUnlinkCommand()
         // 安装依赖
         await runInstallCommand()
         // 获取cli指令

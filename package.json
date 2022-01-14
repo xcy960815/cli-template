@@ -4,7 +4,7 @@
     "description": "cli 代码模板",
     "type": "commonjs",
     "bin": {
-        "hhhh": "/bin/index.js"
+        "aaa": "/bin/index.js"
     },
     "scripts": {
         "dev": "NODE_ENV=development ENV=daily  node ./init-config.js",
